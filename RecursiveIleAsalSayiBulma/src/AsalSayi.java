@@ -13,10 +13,10 @@ public class AsalSayi {
                 // bu sonucu sayacımızda(counter) tutuyoruz.
                 counter++;
         }
-        // sayacımız 0 sonucunu verirse bölünüyordur ve boolean değerimiz true döner.
+        // sayacımız 0 sonucunu verirse yalnızca kendisi ve 1'e bölünebiliyordur. Yani asaldır.
         if (counter == 0) {
             return true;
-        } else { // sayacımız 0 değilse boolean değerimiz false döner.
+        } else { // sayacımız 0 değilse asal sayı değildir.
             return false;
         }
     }
@@ -27,9 +27,9 @@ public class AsalSayi {
         System.out.print("Bir sayi giriniz: ");
         int number = scan.nextInt();
 
-        if (IsPrime(number)) { // değerimiz if koşulunu sağlıyorsa asal
+        if (IsPrime(number)) { // counter değerimiz 0'a eşitse bu sayı kendisi ve 1 hariç hiçbir tam sayıya bölünmüyordur. Yani asaldır.
             System.out.println("Girilen sayi asal bir sayidir.");
-        } else { // sağlamıyorsa asal değildir.
+        } else { // counter değerimiz 0'a eşit değilse bölündüğü sayılar vardır yani asal değildir.
             System.out.println("Girilen sayi asal bir sayi degildir.");
         }
 
