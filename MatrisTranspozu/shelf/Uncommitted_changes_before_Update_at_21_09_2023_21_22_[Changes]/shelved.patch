@@ -1,0 +1,56 @@
+Index: ../DeseneGoreMetotOlusturma/src/Desen.java
+===================================================================
+diff --git a/../DeseneGoreMetotOlusturma/src/Desen.java b/../DeseneGoreMetotOlusturma/src/Desen.java
+deleted file mode 100644
+--- a/../DeseneGoreMetotOlusturma/src/Desen.java	(revision 665b5ac923a3e6e0400b726964b3cefbcd443357)
++++ /dev/null	(revision 665b5ac923a3e6e0400b726964b3cefbcd443357)
+@@ -1,37 +0,0 @@
+-import java.util.Scanner;
+-
+-public class Desen {
+-    // recursive metot içerisinde koşullarımızı oluşturuyoruz.
+-    static int f(int n, int k) {
+-        System.out.println(n);
+-        // eğer değer 0 veya eksiye düşerse bu koşul sağlanıyor.
+-        if (n <= 0) {
+-            int newResult = (n + 5);
+-            System.out.println(newResult);
+-            // yeni sonucu çağırıyoruz.
+-            return newResult;
+-        }
+-        int result = f(n - 5, k);
+-        // kullanıcıdan aldığımız ve üzerinde işlem yaptığımız değer ilk değerden düşük olursa
+-        // if koşulu çalışıyor.
+-        if (n < k) {
+-            System.out.println(n + 5);
+-            return n;
+-        }
+-        // son olarak sonucu çağırıyoruz.
+-        return result;
+-    }
+-
+-
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-        System.out.print("Lütfen bir sayı giriniz: ");
+-        int n = scanner.nextInt();
+-        // kullanıcıdan bir değer alıyoruz. Fonksiyon içindeki ilk n değeri bu değeri tutuyor
+-        // ve işlemlerimizi bunun üzerinden sağlıyoruz.
+-        n = f(n, n);
+-
+-    }
+-}
+-
+-}
+Index: ../DeseneGoreMetotOlusturma/README.md
+===================================================================
+diff --git a/../DeseneGoreMetotOlusturma/README.md b/../DeseneGoreMetotOlusturma/README.md
+deleted file mode 100644
+--- a/../DeseneGoreMetotOlusturma/README.md	(revision 665b5ac923a3e6e0400b726964b3cefbcd443357)
++++ /dev/null	(revision 665b5ac923a3e6e0400b726964b3cefbcd443357)
+@@ -1,5 +0,0 @@
+-Java dilinde kullanıcıdan alınan n değerine göre aşağıdaki kurala uyan döngü kullanmadan bir "Recursive" metot yazımı.
+-
+-Kural : Girilen sayı 0 veya negatif olduğu yere kadar girilen sayıdan 5 rakamını çıkartılıt. Her çıkarma işlemi sırasında 
+-ekrana son değer yazdırılır.
+-Sayı negatif veya 0 olduktan sonra tekrar 5 eklenir ve her ekleme işleminde sayının son değeri ekrana yazdırılır.
