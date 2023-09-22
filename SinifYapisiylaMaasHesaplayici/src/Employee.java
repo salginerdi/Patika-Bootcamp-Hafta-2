@@ -6,46 +6,58 @@ public class Employee {
 
     Employee(String name, double salary, int workHours, int hireYear) {
         this.name = name;
-        this.salary = 0.0;
+        this.salary = salary;
         this.workHours = workHours;
         this.hireYear = hireYear;
     }
 
-    void tax(double taxation) {
+    double tax() {
+        double taxation;
         if (this.salary < 1000) {
-            System.out.println("Vergiye tabii değilsiniz");
+            return 0;
         } else {
-            taxation = (this.salary * 0.03);
-            System.out.println("Vergi : " + taxation);
+            taxation = this.salary * 0.03;
         }
-
+        return taxation;
     }
 
-    void bonus(int extraHours, int extraMoney) {
+    double bonus() {
+        int extraHours;
+        double extraMoney;
         if (this.workHours > 40) {
             extraHours = this.workHours - 40;
             extraMoney = extraHours * 30;
-            System.out.println("Bonus : " + extraMoney);
+        } else {
+            return 0;
         }
+        return extraMoney;
     }
 
-    void raiseSalary(int currentTime, double increasedSalary) {
-        currentTime = 2021;
-        if (currentTime - this.hireYear > 10) {
+    double raiseSalary() {
+        double increasedSalary;
+        int currentTime = 2021;
+        if (currentTime - this.hireYear < 10) {
             increasedSalary = this.salary * 0.05;
-            System.out.println("Maaş artışı" + increasedSalary);
-        } else if (9 < currentTime - this.hireYear || currentTime - this.hireYear < 20) {
+        } else if (9 < currentTime - this.hireYear && currentTime - this.hireYear < 20) {
             increasedSalary = this.salary * 0.10;
-            System.out.println("Maaş artışı" + increasedSalary);
-        } else if (19 < currentTime - this.hireYear) {
+        } else {
             increasedSalary = this.salary * 0.15;
-            System.out.println("Maaş artışı" + increasedSalary);
         }
+        return increasedSalary;
     }
 
-    void print() {
+    public String toString() {
+
         System.out.println("Adı : " + this.name);
+        System.out.println("Maaş : " + this.salary);
         System.out.println("Çalışma Saati : " + this.workHours);
         System.out.println("Başlangıç Yılı : " + this.hireYear);
+        System.out.println("Vergi : " + tax());
+        System.out.println("Bonus : " + bonus());
+        System.out.println("Maaş artışı : " + raiseSalary());
+        System.out.println("Vergi ve bonuslarla maaş : " + (this.salary + tax() + bonus()));
+        return "Toplam maaş : " + (this.salary + tax() + bonus() + raiseSalary());
     }
+
 }
+
